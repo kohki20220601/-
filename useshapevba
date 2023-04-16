@@ -29,3 +29,7 @@ ErrorHandler:
         MsgBox "aaa"
 
 End Sub
+
+' 配列をシートに貼り付ける
+ThisWorkbook.Worksheets(SHEET_NAME_REPORT_ALL_RANKING).Range(Cells(3, 2), Cells(UBound(target_array_for_store_master, 1) + 2, UBound(target_array_for_store_master, 2) + 1)).Value = target_array_for_store_master
+
