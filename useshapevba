@@ -1,0 +1,31 @@
+
+Sub sample2()
+On Error GoTo ErrorHandler
+    Dim sp As Shape
+    Dim posTop As Single
+    '処理
+    Dim i      As Long
+    Dim j      As Long
+    Dim Output As Variant: ReDim Output(1 To ActiveSheet.Shapes.Count, 1 To 3) '出力する二次元配列
+    
+    i = 1
+    
+    For Each sp In ActiveSheet.Shapes
+        Output(i, 1) = sp.AutoShapeType
+        Output(i, 2) = sp.ID
+        If Output(i, 1) < 0 Then
+            Output(i, 3) = ""
+        
+        Else
+            Output(i, 3) = sp.TextFrame.Characters.Text
+        
+        End If
+        i = i + 1
+    Next
+
+Exit Sub
+
+ErrorHandler:
+        MsgBox "aaa"
+
+End Sub
